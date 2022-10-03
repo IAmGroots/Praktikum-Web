@@ -516,4 +516,13 @@ footer p {
     margin: 1rem 0 2rem 0;
     transform: translate(0%);
   }
+  footer nav a {
+    font-size: 10px;
+    margin: 1rem 1rem 0 1rem;
+  }
+
+  footer p {
+    font-size: 10px;
+    margin: 0.5rem 0 1rem 0;
+  }
 }
