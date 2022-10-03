@@ -6,7 +6,7 @@ function lightMode(){
   let mode = ""
   if (isLight){
     mode = "Light Mode"
-    icon = "images/sun1.png";
+    icon = "images/sun.png";
   } else {
     mode = "Dark Mode"
     icon = "images/moon.png";
