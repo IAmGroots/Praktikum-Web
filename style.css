@@ -60,3 +60,25 @@ body {
   transform: translateX(10px);
   color: #00ffff;
 }
+
+@media (max-width: 768px) and (min-width:375px) {
+  .container h1 {
+    font-size: 28px;
+  }
+
+  .container h2 {
+    font-size: 20px;
+  }
+
+  .card {
+    border-radius: 30px;
+  }
+
+  .card img {
+    width: 86%;
+  }
+
+  .card p {
+    font-size: 16px;
+  }
+}
