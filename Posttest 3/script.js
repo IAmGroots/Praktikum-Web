@@ -6,10 +6,10 @@ function lightMode(){
   let mode = ""
   if (isLight){
     mode = "Light Mode"
-    icon = "images/sun.png";
+    icon = "images/sun.png"
   } else {
     mode = "Dark Mode"
-    icon = "images/moon.png";
+    icon = "images/moon.png"
   }
 
   // Manipulasi DOM 1
