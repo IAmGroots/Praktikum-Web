@@ -33,6 +33,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: auto;
 }
 
 .card img {
@@ -52,6 +53,7 @@ body {
 
 .card p {
   color: #ffffff;
+  cursor: pointer;
   margin: 20px 0;
   transition: ease 0.5s;
 }
