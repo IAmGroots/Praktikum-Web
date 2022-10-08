@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Posttest 4</title>
+</head>
+<body>
+  <header>
+    <a href="#"><h1>Asep PS3</h1></a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#list">Games</a>
+      <a href="#biodata" class="me">About Me</a>
+    </nav>
+  </header>
+
+  <div class="mode">
+    <p id="change-mode">Dark Mode</p>
+    <img id="icon-mode" src="images/moon.png" alt="">
+    <input type="checkbox" onclick="lightMode()">
+  </div>
+
+  <main>
+    <div id="home" class="container">
+      <div  class="info">
+        <h2>PlayStation 3</h2>
+        <p>PlayStation 3 (Jepang: プレイステーション 3; merek dagang: PLAYSTATION 3, 
+          disingkat PS3) adalah konsol Sony generasi ketiga. PlayStation 3 merupakan 
+          penerus dari PlayStation dan PlayStation 2. Konsol ini bersaing dengan Xbox 
+          360 dari Microsoft dan Wii dari Nintendo. PlayStation 3 dirilis di Jepang 
+          pada tanggal 11 November 2006 tepat pukul tujuh, dan dirilis pada tanggal 
+          17 November 2006 di Amerika Utara (Amerika Serikat dan Kanada), Hong Kong 
+          dan Taiwan, dan 1 atau 7 Maret 2007 di Eropa dan Australasia, dan wilayah 
+          PAL lainnya. PlayStation 3 dirilis dengan 2 tipe, Basic dan Premium/Platinum. 
+        </p>
+        <br>
+
+        <div id="teks">
+          <p>
+            PlayStation 3 secara resmi diperkenalkan kepada dunia pada tanggal 16 Mei 
+            2005 di E3. Konfigurasi final pertama dipertunjukkan di TGS (Tokyo Game Show) 2006.
+            Teknologi terbaru yang digunakan adalah cell processor-nya, tipe prosesor 
+            yang benar-benar dioptimalkan untuk melakukan operasi floating point. Berbeda 
+            dengan prosesor desktop pada umumnya, kemampuan cell processor PlayStation 3 
+            untuk melakukan operasi floating point sangat baik. Kemampuan cell processor 
+            untuk melakukan operasi floating point sangat baik karena cell processor 
+            merupakan arsitektur vector processor. Bahkan prosesor yang digunakan pada 
+            PlayStation 3 ini merupakan prosesor yang tercanggih saat ini. Selain itu GPU 
+            dibuat sendiri oleh Sony yang bekerjasama dengan NVidia.
+          </p>
+          <br>
+        </div>
+      </div>
+      <button class="btn-more">Read More</button>
+    </div>
+
+    <div id="list" class="container">
+      <div class="info list-roms">
+        List of PlayStation 3 ROMs
+      </div>
+      <div class="box">
+        <div class="card">
+          <img src="images/batman-arkham-city.jpg" alt="Games">
+          <button class="btn-games" onclick="popUp()"><p><a href="#list">Batman: Arkham City</a></p></button>
+          <p><span class="downloads">18.020 Downloads</span></p>
+          <h4>Rating <span class="good-rate">80%</span></h4>
+        </div>
+        <div class="card">
+          <img src="images/fifa-16.jpg" alt="Games">
+          <button class="btn-games" onclick="popUp()"><p><a href="#list">FIFA 16</a></p></button>
+          <p><span class="downloads">10.020 Downloads</span></p>
+          <h4>Rating <span class="mid-rate">60%</span></h4>
+        </div>
+        <div class="card">
+          <img src="images/the-last-of-us.jpg" alt="Games">
+          <button class="btn-games" onclick="popUp()"><p><a href="#list">The Last of Us</a></p></button>
+          <p><span class="downloads">2.420 Downloads</span></p>
+          <h4>Rating <span class="bad-rate">40%</span></h4>
+        </div>
+        <div class="card">
+          <img src="images/red-dead-redemption.jpg" alt="Games">
+          <button class="btn-games" onclick="popUp()"><p><a href="#list">Red Dead Redemption</a></p></button>
+          <p><span class="downloads">27.110 Downloads</span></p>
+          <h4>Rating <span class="good-rate">80%</span></h4>
+        </div>
+        <div class="card">
+          <img src="images/persona-5.jpeg" alt="Games">
+          <button class="btn-games" onclick="popUp()"><p><a href="#list">Persona 5</a></p></button>
+          <p><span class="downloads">1.220 Downloads</span></p>
+          <h4>Rating <span class="bad-rate">40%</span></h4>
+        </div>
+        <div class="card">
+          <img src="images/call-of-duty-black-ops.jpg" alt="Games">
+          <button class="btn-games" onclick="popUp()"><p><a href="#list">Call of Duty: Black Ops</a></p></button>
+          <p><span class="downloads">7.920 Downloads</span></p>
+          <h4>Rating <span class="mid-rate">60%</span></h4>
+        </div>
+        <div class="card">
+          <img src="images/gta-v.jpg" alt="Games">
+          <button class="btn-games" onclick="popUp()"><p><a href="#list">GTA V</a></p></button>
+          <p><span class="downloads">50.790 Downloads</span></p>
+          <h4>Rating <span class="good-rate">80%</span></h4>
+        </div>
+        <div class="card">
+          <img src="images/dark-souls.jpg" alt="Games">
+          <button class="btn-games" onclick="popUp()"><p><a href="#list">Dark Souls</a></p></button>
+          <p><span class="downloads">5.020 Downloads</span></p>
+          <h4>Rating <span class="mid-rate">60%</span></h4>
+        </div>
+        <div class="card">
+          <img src="images/heavy-rain.jpg" alt="Games">
+          <button class="btn-games" onclick="popUp()"><p><a href="#list">Heavy Rain</a></p></button>
+          <p><span class="downloads">1.620 Downloads</span></p>
+          <h4>Rating <span class="bad-rate">40%</span></h4>
+        </div>
+        <div class="card">
+          <img src="images/god-of-war-iii.jpg" alt="Games">
+          <button class="btn-games" onclick="popUp()"><p><a href="#list">God of War III</a></p></button>
+          <p><span class="downloads">30.190 Downloads</span></p>
+          <h4>Rating <span class="good-rate">80%</span></h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="box-form">
+      <form action="form.php" method="POST">
+        <h3>Request Games</h3>
+        <div class="inputBox">
+          <label for="">Nama Games</label>
+          <input type="text" name="name" placeholder="Games" required>
+        </div>
+        <div class="inputBox">
+          <label for="">Email</label>
+          <input type="email" name="email" placeholder="Example@gmail.com" required>
+        </div>
+        <div class="inputBox">
+          <label for="">No Telepon</label>
+          <input type="tel" name="telepon" placeholder="+62 01234567890" required>
+        </div>
+        <div class="inputBox">
+          <label for="">Tanggal</label>
+          <input type="date" name="date" required>
+        </div>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+
+    <div id="biodata">
+      <img src="images/foto-profile.jpg" alt="Foto Profile">
+      <div class="data">
+        <p>Nama</p>
+        <p>NIM</p>
+        <p>Program Studi</p>
+        <p>Angkatan</p>
+      </div>
+      <div class="data">
+        <p>: Muhammad Hadiseptian Nursukamto</p>
+        <p>: 2109106058</p>
+        <p>: Informatika</p>
+        <p>: 2021</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <nav>
+      <a href="https://youtube.com">Youtube</a>
+      <a href="https://instagram.com">Instagram</a>
+      <a href="https://linkedin.com">LinkedIn</a>
+    </nav>
+    <p>&copy Copyright 2022 - by IAmGroots </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
