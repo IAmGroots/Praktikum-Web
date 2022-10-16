@@ -1,0 +1,630 @@
+
+/*===== Google Font =====*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --theme: #37474f;
+  --primary-color: #eeeeee;
+  --secondary-color: #10dddd;
+  --hover-color: #aaaaaa;
+  --nav-color: #222222;
+  --nav-blur: rgba(255, 255, 255, 0.3);
+  --info-blur: rgba(255, 255, 255, 0.15);
+  --card-blur: rgba(255, 255, 255, 0.3);
+  --shadow: #303030;
+  --download-color: rgb(0, 200, 200);
+  --red-color: rgb(200, 0, 0);
+  --yellow-color: rgb(200, 200, 0);
+  --green-color: rgb(0, 200, 0);
+  --footer: #28313b;
+}
+
+.light-theme {
+  --theme: #bebebe;
+  --primary-color: #222222;
+  --secondary-color: #10dddd;
+  --hover-color: #666666;
+  --nav-color: #eeeeee;
+  --nav-blur: rgba(0, 0, 0, 0.3);
+  --info-blur: rgba(255, 255, 255, 0.15);
+  --card-blur: rgba(0, 0, 0, 0.3);
+  --shadow: #909090;
+  --download-color: rgb(0, 175, 175);
+  --red-color: rgb(175, 0, 0);
+  --yellow-color: rgb(175, 175, 0);
+  --green-color: rgb(0, 175, 0);
+  --footer: #9da1a5;
+}
+
+body {
+  height: 100%;
+  color: var(--primary-color);
+  background: var(--theme);
+  font-family: 'Poppins', sans-serif;
+}
+
+
+/*===== Navigation =====*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  background: var(--nav-blur);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+header h1 {
+  margin: 0 2.5rem;
+  color: var(--secondary-color);
+}
+
+header nav a {
+  font-size: 20px;
+  margin: 0 2.5rem;
+  color: var(--secondary-color);
+}
+
+header nav a:hover {
+  color: var(--nav-color);
+  transition: ease 0.5s;
+}
+
+.me {
+  color: var(--primary-color);
+  background: var(--secondary-color);
+  border-radius: 10px;
+  padding: 0.3rem 0.8rem;
+}
+
+.me:hover,  header nav a.active {
+  color: var(--theme);
+  background: var(--primary-color);
+}
+
+
+/* Change Mode */
+.mode {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin: 20px 40px 0 0;
+}
+
+.mode p {
+  margin: 0 10px;
+}
+
+.mode img {
+  width: 25px;
+  margin: 0 10px 0 0;
+}
+
+input[type="checkbox"] {
+  position: relative;
+  width: 52px;
+  height: 26px;
+  appearance: none;
+  background: #eeeeee;
+  border-radius: 15px;
+  transition: ease 0.5s;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  background: #10dddd;
+}
+
+input[type="checkbox"]::before {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: #505050;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  transition: ease 0.5s;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: translateX(25px);
+}
+
+
+/*===== Main Content =====*/
+.container {
+  padding: 3rem 0 0 0;
+}
+
+.info {
+  background: var(--info-blur);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: -3px 3px 7px var(--shadow);
+  margin: 2.5rem 1.5rem 0 1.5rem;
+  border-top: 2px solid var(--card-blur);
+  border-right: 2px solid var(--card-blur);
+}
+
+.info h2 {
+  padding: 1rem 0 1rem 2rem;
+}
+
+.info p {
+  text-indent: 25px;
+  text-align: justify;
+  padding: 0 2rem;
+}
+
+#teks {
+  display: none;
+}
+
+.btn-more {
+  font-size: 14px;
+  font-weight: bold;
+  width: 90px;
+  height: 30px;
+  border: none;
+  color: var(--theme);
+  background: var(--primary-color);
+  border-radius: 10px;
+  margin: 0.75rem 0 0 2rem;
+  cursor: pointer;
+}
+
+.list-roms {
+  color: var(--primary-color);
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem 0;
+  margin: 2.5rem 1.5rem 0.5rem 1.5rem;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 15rem;
+  height: 20rem;
+  background: var(--info-blur);
+  box-shadow: -2px 2px 6px var(--shadow);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  margin: 1rem 0.8rem;
+  padding: 1.4rem 0 1rem 0;
+}
+
+.card:hover {
+  cursor: pointer;
+  border-top: 2px solid var(--card-blur);
+  border-right: 2px solid var(--card-blur);
+}
+
+.card img {
+  width: 80%;
+  height: 70%;
+  border-radius: 20px;
+  transform: scale(0.925);
+}
+
+.card:hover img {
+  cursor: pointer;
+  transition: ease 0.5s;
+  transform: scale(1);
+}
+
+.card a {
+  color: var(--primary-color);
+  font-size: 18px;
+}
+
+.card a:hover {
+  color: var(--hover-color);
+}
+
+.card p {
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin: 0.3rem 0 0 0;
+}
+
+.card h4 {
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2px;
+  margin: 0.2rem 0 0 0;
+}
+
+.btn-games {
+  background: transparent;
+  border: none;
+}
+
+.downloads {
+  color: var(--download-color);
+}
+
+.good-rate {
+  color: var(--green-color);
+  font-size: 16px;
+  margin: 0 0.5rem;
+}
+
+.mid-rate {
+  color: var(--yellow-color);
+  font-size: 16px;
+  margin: 0 0.5rem;
+}
+
+.bad-rate {
+  color: var(--red-color);
+  font-size: 16px;
+  margin: 0 0.5rem;
+}
+
+
+/* Form */
+.box-form {
+  margin: 40px auto 0 auto;
+  position: relative;
+  width: 380px;
+  height: 430px;
+  background: #505050;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.box-form::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 380px;
+  background: linear-gradient(0deg, transparent, var(--secondary-color), var(--secondary-color));
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+}
+
+.box-form::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 380px;
+  height: 380px;
+  background: linear-gradient(0deg, transparent, var(--secondary-color), var(--secondary-color));
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+  animation-delay: -3s;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background: var(--shadow);
+  border-radius: 10px;
+  inset: 2px;
+  z-index: 1;
+  padding: 40px;
+}
+
+form h3 {
+  color: var(--secondary-color);
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 0.1rem;
+}
+
+.inputBox {
+  position: relative;
+  width: 300px;
+  margin-top: 15px;
+}
+
+.inputBox input {
+  position: relative;
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--theme);
+  border: none;
+  outline: none;
+  color: var(--primary-color);
+  letter-spacing: 0.05rem;
+  font-size: 1rem;
+}
+
+form input[type="submit"] {
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  padding: 5px;
+  margin-top: 15px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  background: var(--primary-color);
+  color: var(--theme);
+}
+
+input[type="submit"]:hover {
+  color: var(--primary-color);
+  background: var(--theme);
+  border: 2px solid var(--primary-color);
+}
+
+
+/*===== Biodata =====*/
+#biodata {
+  font-size: 20px;
+  width: 60%;
+  margin: 4rem 0 5rem 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  transform: translate(33%);
+}
+
+#biodata img {
+  width: 20%;
+  border-radius: 55px;
+}
+
+
+/*===== Footer =====*/
+footer {
+  background: var(--footer);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer nav {
+  display: flex;
+}
+
+footer nav a {
+  color: var(--primary-color);
+  margin: 2rem 2rem 0 2rem;
+}
+
+footer nav a:hover {
+  color: var(--hover-color);
+}
+
+footer p {
+  font-size: 16px;
+  text-align: center;
+  margin: 1.5rem 0 2rem 0;
+}
+
+
+@media ((min-width:630px) and (max-width: 768px)){
+  .container {
+    padding: 2.25rem 0 0 0;
+  }
+
+  header h1 {
+    font-size: 26px;
+  }
+  
+  header nav a {
+    font-size: 18px;
+    margin: 0 2rem;
+  }
+
+  .info h2 {
+    font-size: 24px;
+  }
+  
+  .info p {
+    font-size: 16px;
+  }
+
+  .list-roms {
+    font-size: 20px;
+  }
+
+  .card {
+    width: 10rem;
+    height: 13rem;
+  }
+
+  .card img {
+    width: 70%;
+    height: 60%;
+    border-radius: 15px;
+  }
+  
+  .card a {
+    font-size: 14px;
+  }
+  
+  .card p {
+    font-size: 10px;
+  }
+  
+  .card h4 {
+    font-size: 10px;
+  }
+
+  .good-rate {
+    font-size: 12px;
+  }
+  
+  .mid-rate {
+    font-size: 12px;
+  }
+  
+  .bad-rate {
+    font-size: 12px;
+  }
+
+  #biodata {
+    font-size: 14px;
+    width: 65%;
+    margin: 3rem 0 4rem 0;
+    transform: translate(30%);
+  }
+
+  footer nav a {
+    font-size: 12px;
+    margin: 1rem 1rem 0 1rem;
+  }
+
+  footer p {
+    font-size: 12px;
+    margin: 0.5rem 0 1rem 0;
+  }
+}
+
+
+
+@media (max-width: 630px){
+  header {
+    width: 100%;
+  }
+
+  header h1 {
+    font-size: 16px;
+  }
+  
+  header nav a {
+    font-size: 12px;
+    margin: 0 1rem;
+  }
+
+  .mode {
+    margin: 10px 25px 0 0;
+  }
+
+  .mode p {
+    font-size: 10px;
+  }
+
+  input[type="checkbox"] {
+    width: 30px;
+    height: 16px;
+    border-radius: 15px;
+  }
+  input[type="checkbox"]::before {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  input[type="checkbox"]:checked::before {
+    transform: translateX(13px);
+  }
+
+  .container {
+    padding: 1.25rem 0;
+  }
+
+  .info h2 {
+    font-size: 10px;
+  }
+  
+  .info p {
+    font-size: 10px;
+  }
+
+  .btn-more {
+    font-size: 10px;
+    font-weight: bold;
+    width: 70px;
+    height: 15px;
+  }
+
+  .list-roms {
+    font-size: 10px;
+  }
+
+  .card {
+    width: 10rem;
+    padding: 0;
+  }
+
+  .card img {
+    width: 80%;
+    height: 70%;
+    border-radius: 15px;
+  }
+  
+  .card a {
+    font-size: 11px;
+  }
+  
+  .card p {
+    font-size: 9px;
+  }
+  
+  .card h4 {
+    font-size: 9px;
+  }
+
+  .good-rate {
+    font-size: 9px;
+  }
+  
+  .mid-rate {
+    font-size: 10px;
+  }
+  
+  .bad-rate {
+    font-size: 10px;
+  }
+
+  #biodata {
+    font-size: 10px;
+    width: 100%;
+    margin: 1rem 0 2rem 0;
+    transform: translate(0%);
+  }
+  footer nav a {
+    font-size: 10px;
+    margin: 1rem 1rem 0 1rem;
+  }
+
+  footer p {
+    font-size: 10px;
+    margin: 0.5rem 0 1rem 0;
+  }
+}
