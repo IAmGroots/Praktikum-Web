@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --theme: #181818;
+  --text-color: #ffffff;
+  --main-color: #10dddd;
+  --bg: rgba(255, 255, 255, 0.15);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  background: var(--theme);
+  color: var(--text-color);
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 500px;
+  padding: 25px;
+  background: var(--bg);
+  border-radius: 20px;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+h3 {
+  text-align: center;
+  font-size: 24px;
+  color: var(--main-color);
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  /* border: 1px solid blue; */
+}
+
+.inputBox label {
+  font-size: 18px;
+  font-weight: 600;
+  padding-left: 15px;
+}
+
+.inputBox input {
+  font-size: 15px;
+  font-weight: 500;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-radius: 7px;
+  border: none;
+  margin-top: 3px;
+}
+
+form input[type="submit"] {
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  padding: 3px 0;
+  border-radius: 7px;
+}
+
+form input[type="submit"]:hover {
+  color: var(--main-color);
+}
+
+form a {
+  width: 100%;
+  background: var(--bg);
+  border-radius: 3px;
+  padding: 3px 7px;
+  color: var(--theme2);
+  text-decoration: none;
+}
+
+form a:hover {
+  opacity: 0.75;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}

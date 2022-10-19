@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --theme: #181818;
+  --theme2: #f8f8f8;
+  --text-color: #ffffff;
+  --main-color: #10dddd;
+  --secondary-color: #212121;
+  --nav-bar: rgba(255, 255, 255, 0.15);
+  --blur-text: rgba(255, 255, 255, 0.15);
+  --overlay-hover: rgba(255, 255, 255, 0.5);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  background: var(--theme);
+  color: var(--text-color);
+}
+
+/* border container penting untuk sementara */
+.container {
+  width: 90%;
+  height: 100vh;
+  /* border: 1px solid red; */
+}
+
+.container h2 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+table, tr, th, td {
+  border-collapse: collapse;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+table tr th {
+  font-size: 18px;
+}
+
+.thNo {
+  padding: 10px;
+}
+
+.no {
+  text-align: center;
+}
+
+.nama {
+  padding: 5px 10px;
+}
+
+.thAction {
+  border:none;
+  padding: 10px 25px;
+  display: flex;
+}
+
+.action {
+  border:none;
+  display: flex;
+  justify-content: center;
+  font-size: 32px;
+  align-items: center;
+  height: 75px;
+}
+
+.merah {
+  color: rgb(255, 0, 0);
+}
+
+.kuning {
+  color: rgb(255, 255, 0);
+}
+
+.tombol {
+  width: 100%;
+  text-align: center;
+  background: white;
+  background: #252525;
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+
+.hijau {
+  font-size: 20px;
+  text-decoration: none;
+  color: rgb(0, 255, 0);
+}
+
+.tabel .back {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  padding: 3px 7px;
+  color: var(--theme2);
+  text-decoration: none;
+}
+
+.tabel .back:hover {
+  opacity: 0.75;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
