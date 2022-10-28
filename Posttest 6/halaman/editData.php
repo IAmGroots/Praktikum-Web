@@ -3,7 +3,7 @@ include "../koneksi.php";
 
 $id = $_GET["id"];
 $query = mysqli_query($koneksi, "SELECT * FROM listGames WHERE id='$id'");
-$row = mysqli_fetch_array($query);
+$row = mysqli_fetch_assoc($query);
 ?>
 
 <!DOCTYPE html>

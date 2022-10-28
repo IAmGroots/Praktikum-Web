@@ -9,7 +9,7 @@ if (isset($_POST["ubah"])) {
   $deskripsi = $_POST["deskripsi"];
   $waktu = date("y-m-d h:i:s");
   $gambar = $_FILES["gambar"]["name"];
-  $gambarBaru = "$nama.png";
+  $gambarBaru = "$id.png";
   $tmp = $_FILES["gambar"]["tmp_name"];
 
   if (move_uploaded_file($tmp, '../databaseImages/' . $gambarBaru)) {
