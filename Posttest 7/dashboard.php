@@ -1,5 +1,10 @@
 <?php
 include "koneksi.php";
+session_start();
+if (!isset($_SESSION["session_username"])) {
+  header("location: index.html");
+  exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,12 +24,15 @@ include "koneksi.php";
     <div class="container">
       <div class="head">
         <h2>Dashboard Next Update Games</h2>
-        <div class="search">
-          <input type="search" name="" id="" placeholder="Genshin Impact">
-          <i class="uil uil-search" onclick="search()"></i>
-        </div>
+        <form action="" method="GET" class="search">
+          <input type="text" name="keyword" id="" placeholder="Genshin Impact">
+          <button type="submit" class="btn-search" name="search">
+            <i class="uil uil-search"></i>
+          </button>
+        </form>
       </div>
-      <a href="index.html" class="back">Kembali</a>
+      <a href="logout.php" class="back">Logout</a>
+      <a href="dashboard.php" class="back">Refresh</a>
       <div class="table-box">
         <table>
           <tr>
@@ -36,11 +44,20 @@ include "koneksi.php";
             <td class="tWaktu">Keterangan</td>
             <td class="tActionHead">Action</td>
           </tr>
-          <?php
-          $query = mysqli_query($koneksi, "SELECT * FROM listGames");
-          $no = 1;
 
-          while ($row = mysqli_fetch_assoc($query)) {
+          <?php
+          if (isset($_GET["search"])) {
+            $keyword = $_GET["keyword"];
+            $result = mysqli_query($koneksi, "SELECT * FROM listgames WHERE
+                      nama LIKE '%$keyword%' OR
+                      genre LIKE '%$keyword%' OR
+                      deskripsi LIKE '%$keyword%' OR
+                      waktu LIKE '%$keyword%'");
+          } else {
+            $result = mysqli_query($koneksi, "SELECT * FROM listgames");
+          }
+          $no = 1;
+          while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr class='row'>";
             echo "<td class='tNomor'>$no</td>";
             echo "<td class='tNama'>$row[nama]</td>";
@@ -49,9 +66,9 @@ include "koneksi.php";
             echo "<td class='tGambar'><img src='databaseImages/$row[gambar]' class='gambar-cover' width='100%' height='100%' alt='Gambar'></td>";
             echo "<td class='tWaktu'>$row[waktu]</td>";
             echo "<td class='tAction'>
-                <a href='halaman/editData.php?id=$row[id]' class='kuning'><i class='uil uil-edit'></i></a>
-                <a href='proses/deleteData.php?id=$row[id]' class='merah'><i class='uil uil-trash-alt'></i></a>
-                </td>";
+                    <a href='halaman/editData.php?id=$row[id]' class='kuning'><i class='uil uil-edit'></i></a>
+                    <a href='proses/deleteData.php?id=$row[id]' class='merah'><i class='uil uil-trash-alt'></i></a>
+                  </td>";
             echo "</tr>";
             $no++;
           }
@@ -66,11 +83,5 @@ include "koneksi.php";
     </div>
   </div>
 </body>
-
-<script>
-  function search() {
-    alert("To Be Continue ...");
-  }
-</script>
 
 </html>
