@@ -6,6 +6,7 @@ if (isset($_POST["ubah"])) {
   $id = $_GET["id"];
   $nama = $_POST["nama"];
   $genre = $_POST["genre"];
+  $rating = $_POST["rating"];
   $deskripsi = $_POST["deskripsi"];
   $waktu = date("y-m-d h:i:s");
   $gambar = $_FILES["gambar"]["name"];
@@ -17,9 +18,10 @@ if (isset($_POST["ubah"])) {
               nama = '$nama',
               genre = '$genre',
               deskripsi = '$deskripsi',
+              rating = '$rating',
               gambar = '$gambarBaru',
               waktu = '$waktu'
-              WHERE id = '$id'";
+              WHERE id_game = '$id'";
 
     $result = mysqli_query($koneksi, $sql);
 

@@ -1,7 +1,7 @@
 <?php
 include "../koneksi.php";
 session_start();
-if (!isset($_SESSION["session_username"])) {
+if ($_SESSION["akses"] != "admin") {
   header("location: index.html");
   exit;
 }
@@ -30,6 +30,10 @@ if (!isset($_SESSION["session_username"])) {
         <div class="inputBox">
           <label for="">Genre</label>
           <input type="text" name="genre" placeholder="Genre Games" required>
+        </div>
+        <div class="inputBox">
+          <label for="">Rating</label>
+          <input type="number" name="rating" step="0.1" placeholder="Rating Games" required>
         </div>
         <div class="inputBox">
           <label for="">Gambar</label>

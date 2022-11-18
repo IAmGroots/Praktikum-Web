@@ -2,7 +2,7 @@
 include "../koneksi.php";
 
 $id = $_GET['id'];
-$result = mysqli_query($koneksi, "DELETE FROM listgames WHERE id = '$id'");
+$result = mysqli_query($koneksi, "DELETE FROM listgames WHERE id_game = '$id'");
 
 if ($result) {
   echo "

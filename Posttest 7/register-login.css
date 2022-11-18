@@ -21,21 +21,8 @@ body {
   display: flex;
   height: 100vh;
   justify-content: center;
-  background-size: 250% 250%;
-  background-image: linear-gradient(
-        -45deg, 
-        rgb(60,175,230) 0%, 
-        rgb(90,110,230) 25%, 
-        rgb(155,70,185) 51%, 
-        rgb(255,55,130) 100%
-  );  
-  animation: AnimateBG 20s ease infinite;
-}
-
-@keyframes AnimateBG { 
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+  background-image: url(images/bg1.jpg);
+  background-size: 100%;
 }
 
 .container {
@@ -52,6 +39,7 @@ form {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px)
 }
 
 h3 {
@@ -87,14 +75,28 @@ h3 {
 }
 
 .roles {
+  height: 32px;
+  text-indent: 10px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
   border-radius: 7px;
   background: #ffffff;
   color: #000000;
   font-weight: 500;
+  border: none;
+  outline: none;
 }
 
-.inputBox input[type="radio"] {
-  width: 10%;
+.inputBox .roles .option {
+  display: flex;
+  width: 200px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* text-align: left; */
+  /* width: 50%; */
+  text-align: left;
+  border: 1px solid red;
 }
 
 form input[type="submit"] {

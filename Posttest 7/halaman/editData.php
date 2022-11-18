@@ -1,13 +1,13 @@
 <?php
 include "../koneksi.php";
 session_start();
-if (!isset($_SESSION["session_username"])) {
-  header("location: index.html");
+if ($_SESSION["akses"] != "admin") {
+  header("location: index.php");
   exit;
 }
 
 $id = $_GET["id"];
-$query = mysqli_query($koneksi, "SELECT * FROM listGames WHERE id='$id'");
+$query = mysqli_query($koneksi, "SELECT * FROM listGames WHERE id_game ='$id'");
 $row = mysqli_fetch_assoc($query);
 ?>
 
@@ -25,7 +25,7 @@ $row = mysqli_fetch_assoc($query);
 <body>
   <div class="bg">
     <div class="container">
-      <form action="../proses/editData.php?id=<?php echo $row["id"] ?>" method="POST" enctype="multipart/form-data">
+      <form action="../proses/editData.php?id=<?php echo $row["id_game"] ?>" method="POST" enctype="multipart/form-data">
         <h3>Edit Games</h3>
         <div class="inputBox">
           <label for="">Nama</label>
@@ -34,6 +34,10 @@ $row = mysqli_fetch_assoc($query);
         <div class="inputBox">
           <label for="">Genre</label>
           <input type="text" name="genre" value="<?php echo "$row[genre]" ?>" required>
+        </div>
+        <div class="inputBox">
+          <label for="">Rating</label>
+          <input type="number" name="rating" step="0.01" value="<?php echo "$row[rating]" ?>" required>
         </div>
         <div class="inputBox">
           <label for="">Gambar</label>

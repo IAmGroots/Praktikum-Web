@@ -1,8 +1,8 @@
 <?php
 include "koneksi.php";
 session_start();
-if (!isset($_SESSION["session_username"])) {
-  header("location: index.html");
+if ($_SESSION["akses"] != "admin") {
+  header("location: index.php");
   exit;
 }
 ?>
@@ -23,7 +23,7 @@ if (!isset($_SESSION["session_username"])) {
   <div class="bg">
     <div class="container">
       <div class="head">
-        <h2>Dashboard Next Update Games</h2>
+        <h2>Dashboard Games</h2>
         <form action="" method="GET" class="search">
           <input type="text" name="keyword" id="" placeholder="Genshin Impact">
           <button type="submit" class="btn-search" name="search">
@@ -36,13 +36,13 @@ if (!isset($_SESSION["session_username"])) {
       <div class="table-box">
         <table>
           <tr>
-            <td class="data nomor">No</td>
-            <td class="tNama">Nama</td>
-            <td class="tGenre">Genre</td>
-            <td class="tDeskripsi">Deskripsi</td>
-            <td class="tGambar">Gambar</td>
-            <td class="tWaktu">Keterangan</td>
-            <td class="tActionHead">Action</td>
+            <td class="data nomor" style="color: #000000;">No</td>
+            <td class="tNama" style="color: #000000;">Nama</td>
+            <td class="tGenre" style="color: #000000;">Genre</td>
+            <td class="tDeskripsi" style="color: #000000;">Deskripsi</td>
+            <td class="tGambar" style="color: #000000;">Gambar</td>
+            <td class="tWaktu" style="color: #000000;">Keterangan</td>
+            <td class="tActionHead" style="color: #000000;">Aksi</td>
           </tr>
 
           <?php
@@ -66,8 +66,8 @@ if (!isset($_SESSION["session_username"])) {
             echo "<td class='tGambar'><img src='databaseImages/$row[gambar]' class='gambar-cover' width='100%' height='100%' alt='Gambar'></td>";
             echo "<td class='tWaktu'>$row[waktu]</td>";
             echo "<td class='tAction'>
-                    <a href='halaman/editData.php?id=$row[id]' class='kuning'><i class='uil uil-edit'></i></a>
-                    <a href='proses/deleteData.php?id=$row[id]' class='merah'><i class='uil uil-trash-alt'></i></a>
+                    <a href='halaman/editData.php?id=$row[id_game]' class='kuning'><i class='uil uil-edit'></i></a>
+                    <a href='proses/deleteData.php?id=$row[id_game]' class='merah'><i class='uil uil-trash-alt'></i></a>
                   </td>";
             echo "</tr>";
             $no++;

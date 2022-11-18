@@ -1,7 +1,8 @@
 <?php
+include "koneksi.php";
 session_start();
-if (!isset($_SESSION["session_username"])) {
-  header("location: index.html");
+if ($_SESSION["akses"] != "user") {
+  header("location: index.php");
   exit;
 }
 ?>
@@ -16,6 +17,14 @@ if (!isset($_SESSION["session_username"])) {
   <title>Home</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+  <script>
+    function transaksi(){
+      alert("Website masih dalam tahap pengembangan")
+    }
+    function beli(){
+      alert("Terima Kasih, Anda telah membeli Games")
+    }
+  </script>
 </head>
 
 <body>
@@ -38,15 +47,15 @@ if (!isset($_SESSION["session_username"])) {
         <div class="links hover-none">
           <a href="#aboutMe">About Me</a>
         </div>
+        <div class="links hover-none">
+          <a href="#" onclick="transaksi()">Transaksi</a>
+        </div>
         <div class="links">
           <div class="mode">
             <p id="change-mode">Dark Mode</p>
             <img id="icon-mode" src="images/moon.png" alt="" />
             <input type="checkbox" onclick="lightMode()" />
           </div>
-        </div>
-        <div class="links hover-none">
-          <a href="#"><?php echo $_SESSION['session_username'] ?></a>
         </div>
         <div class="links">
           <a href="logout.php">Logout</a>
@@ -95,106 +104,22 @@ if (!isset($_SESSION["session_username"])) {
   <div class="container" id="games">
     <div class="listGames">Top 10 PS3 Games For You</div>
     <div class="boxCard">
-      <div class="card">
-        <img src="images/call-of-duty-black-ops.jpg" alt="" />
-        <div class="overlay overlayBg">
-          <div class="tittle">Call Of Duty <br />Black Ops</div>
-          <div class="desc">
-            <a href="#games" onclick="popUp()">Download</a>
-            <span>Rating 8.5/10</span>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/fifa-16.jpg" alt="" />
-        <div class="overlay overlayBg">
-          <div class="tittle">FIFA 16</div>
-          <div class="desc">
-            <a href="#games" onclick="popUp()">Download</a>
-            <span>Rating 9/10</span>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/god-of-war-iii.jpg" alt="" />
-        <div class="overlay overlayBg">
-          <div class="tittle">God of War III</div>
-          <div class="desc">
-            <a href="#games" onclick="popUp()">Download</a>
-            <span>Rating 9/10</span>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/gta-v.jpg" alt="" />
-        <div class="overlay overlayBg">
-          <div class="tittle">GTA V</div>
-          <div class="desc">
-            <a href="#games" onclick="popUp()">Download</a>
-            <span>Rating 8.5/10</span>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/red-dead-redemption.jpg" alt="" />
-        <div class="overlay overlayBg">
-          <div class="tittle">Read Dead Redemption</div>
-          <div class="desc">
-            <a href="#games" onclick="popUp()">Download</a>
-            <span>Rating 9/10</span>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/persona-5.jpeg" alt="" />
-        <div class="overlay overlayBg">
-          <div class="tittle">Persona 5</div>
-          <div class="desc">
-            <a href="#games" onclick="popUp()">Download</a>
-            <span>Rating 8.5/10</span>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/dark-souls.jpg" alt="" />
-        <div class="overlay overlayBg">
-          <div class="tittle">Dark Souls</div>
-          <div class="desc">
-            <a href="#games" onclick="popUp()">Download</a>
-            <span>Rating 9/10</span>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/batman-arkham-city.jpg" alt="" />
-        <div class="overlay overlayBg">
-          <div class="tittle">Batman <br />Arkham City</div>
-          <div class="desc">
-            <a href="#games" onclick="popUp()">Download</a>
-            <span>Rating 8.5/10</span>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/the-last-of-us.jpg" alt="" />
-        <div class="overlay overlayBg">
-          <div class="tittle">The Last Of Us</div>
-          <div class="desc">
-            <a href="#games" onclick="popUp()">Download</a>
-            <span>Rating 8/10</span>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/heavy-rain.jpg" alt="" />
-        <div class="overlay overlayBg">
-          <div class="tittle">Heavy Rain</div>
-          <div class="desc">
-            <a href="#games" onclick="popUp()">Download</a>
-            <span>Rating 8.5/10</span>
-          </div>
-        </div>
-      </div>
+      <?php
+        $result = mysqli_query($koneksi, "SELECT * FROM listgames");
+        while ($row = mysqli_fetch_assoc($result)){
+          echo "<div class='card'>";
+            echo "<img src='databaseImages/$row[gambar]' alt='' />";
+            echo "<div class='overlay overlayBg'>";
+              echo "<div class='tittle'>$row[nama]</div>";
+              echo "<div class='desc'>";
+                // echo "<a href='cek_login.php?id=$row[id_game]'>Beli Sekarang</a>";
+                echo "<a href='' onclick='beli()'>Beli Sekarang</a>";
+                echo "<span>Rating $row[rating]/10</span>";
+              echo "</div>";
+            echo "</div>";
+          echo "</div>";
+        }
+      ?>
     </div>
   </div>
 

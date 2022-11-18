@@ -5,6 +5,7 @@ if (isset($_POST["tambah"])) {
   date_default_timezone_set("asia/kuala_lumpur");
   $nama = $_POST["nama"];
   $genre = $_POST["genre"];
+  $rating = $_POST["rating"];
   $deskripsi = $_POST["deskripsi"];
   $waktu = date("y-m-d h:i:s");
   $gambar = $_FILES["gambar"]["name"];
@@ -17,6 +18,7 @@ if (isset($_POST["tambah"])) {
               '$nama',
               '$genre',
               '$deskripsi',
+              '$rating',
               '$gambarBaru',
               '$waktu')";
 

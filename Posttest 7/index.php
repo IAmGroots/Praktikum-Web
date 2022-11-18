@@ -1,3 +1,7 @@
+<?php
+  include "koneksi.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -85,17 +89,33 @@
     <div class="container" id="games">
       <div class="listGames">Top 10 PS3 Games For You</div>
       <div class="boxCard">
-        <div class="card">
-          <img src="images/call-of-duty-black-ops.jpg" alt="" />
-          <div class="overlay overlayBg">
-            <div class="tittle">Call Of Duty <br />Black Ops</div>
-            <div class="desc">
-              <a href="#games" onclick="popUp()">Download</a>
-              <span>Rating 8.5/10</span>
-            </div>
-          </div>
-        </div>
-        <div class="card">
+      <?php
+          $result = mysqli_query($koneksi, "SELECT * FROM listgames");
+          while ($row = mysqli_fetch_assoc($result)){
+              // echo "<div class='produk'>";
+              //     echo "<a href='detail-produk.php?id=$row[id_produk]'><img src='img/$row[gambar]' alt='Gambar Produk'></a>";
+              //     echo "<div class='deskripsi-produk'>";
+              //     echo "<a href='detail-produk.php?id=$row[id_produk]'><h4 class='judul'>$row[nama]</h4></a>";
+              //     $harga = number_format($row['harga'],0,'.','.');
+              //     echo "<div class='bagianBawah'>";
+              //         echo "<p class='harga'>Rp $harga</p>";
+              //         echo "<a href='cek_login.php?id=$row[id_produk]' class='btn-produk'>Beli Sekarang</a>";
+              //     echo "</div>";
+              //     echo "</div>";
+              // echo "</div>"; -->
+            echo "<div class='card'>";
+              echo "<img src='databaseImages/$row[gambar]' alt='' />";
+              echo "<div class='overlay overlayBg'>";
+                echo "<div class='tittle'>$row[nama]</div>";
+                echo "<div class='desc'>";
+                  echo "<a href='cek_login.php?id=$row[id_game]'>Beli Sekarang</a>";
+                  echo "<span>Rating $row[rating]/10</span>";
+                echo "</div>";
+              echo "</div>";
+            echo "</div>";
+          }
+      ?>
+        <!-- <div class="card">
           <img src="images/fifa-16.jpg" alt="" />
           <div class="overlay overlayBg">
             <div class="tittle">FIFA 16</div>
@@ -104,8 +124,8 @@
               <span>Rating 9/10</span>
             </div>
           </div>
-        </div>
-        <div class="card">
+        </div> -->
+        <!-- <div class="card">
           <img src="images/god-of-war-iii.jpg" alt="" />
           <div class="overlay overlayBg">
             <div class="tittle">God of War III</div>
@@ -184,7 +204,7 @@
               <span>Rating 8.5/10</span>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 

@@ -2,7 +2,7 @@
 include "koneksi.php";
 
 if (isset($_POST["register"])) {
-  $username = $_POST["username"];
+  $username = strtolower($_POST["username"]);
   $pass = $_POST["password"];
   $konfirmasi = $_POST["konfirmasi"];
   $role = 'user';

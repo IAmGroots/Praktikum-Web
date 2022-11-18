@@ -4,7 +4,7 @@ include "koneksi.php";
 session_start();
 
 if (isset($_POST["login"])) {
-  $username = $_POST["username"];
+  $username = strtolower($_POST["username"]);
   $pass = $_POST["password"];
   $role = $_POST["role"];
 
@@ -15,10 +15,12 @@ if (isset($_POST["login"])) {
 
     if (password_verify($pass, $row['password']) and $row['role'] == 'admin') {
       $_SESSION["session_username"] = $username;
+      $_SESSION["akses"] = "admin";
       header("location: dashboard.php");
       exit;
     } else if (password_verify($pass, $row['password']) and $row['role'] == 'user') {
       $_SESSION["session_username"] = $username;
+      $_SESSION["akses"] = "user";
       header("location: user.php");
       exit;
     } else {
@@ -59,22 +61,23 @@ if (isset($_POST["login"])) {
         <h3>Login</h3>
         <div class="inputBox">
           <label for="">Username</label>
-          <input type="text" name="username" placeholder="username" required>
+          <input type="text" name="username" placeholder="Username" required>
         </div>
         <div class="inputBox">
           <label for="">Password</label>
-          <input type="password" name="password" placeholder="password" required>
+          <input type="password" name="password" placeholder="Password" required>
         </div>
         <div class="inputBox">
           <label for="">Role</label>
-          <div class="roles">
-            <input type="radio" name="role" value="admin" required> Admin
-            <input type="radio" name="role" value="user" required> User
-          </div>
+          <select name="role" class="roles" id="" required>
+            <option value="">Select Role</option>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+          </select>
         </div>
         <input type="submit" value="Login" name="login">
         <div class="links">
-          <a href="index.html">Kembali</a>
+          <a href="index.php">Kembali</a>
           <a href="register.php" class="khusus">Register</a>
         </div>
       </form>
